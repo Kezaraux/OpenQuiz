@@ -1,0 +1,13 @@
+.test {
+    margin:10px auto 10px auto;
+    height:auto;
+    border:1px solid #AAA;
+    border-radius:5px;
+    background-color:#FFF;
+    padding:10px;
+}
+
+
+.spacer2 {
+    height:15px;
+}

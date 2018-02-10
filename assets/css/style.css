@@ -1,0 +1,169 @@
+body {
+    background-color:#000;
+}
+
+.popContainer .popover {
+    width:238px;
+}
+
+.test {
+    margin:10px auto 10px auto;
+    height:auto;
+    border:1px solid #AAA;
+    border-radius:5px;
+    background-color:#FFF;
+    padding:10px;
+}
+
+.questionHolder {
+    background-color:#FFF;
+    height:310px;
+    overflow:auto;
+}
+
+.questionHolder td, tr {
+    border:1px solid #ddd;
+}
+
+#contentPanel {
+    height:500px;
+}
+
+#libraryHolder {
+    height:500px;
+    padding:0px;
+    overflow:auto;
+}
+
+#libraryHolder td {
+    border-top:none;
+    border-bottom:1px solid #ddd;
+}
+
+#libraryHolder .table {
+    margin-bottom:0;
+}
+
+.spacer {
+    height:71px;
+}
+
+.spacer2 {
+    height:15px;
+}
+
+#infoPanel {
+    width:95%;
+    height:95%;
+    margin:13px auto auto auto;
+    /*border:1px solid black;*/
+    border-radius:4px;
+}
+
+#deleteLib {
+
+}
+
+#testHolder {
+    height:100%;
+    padding:0px;
+    overflow:auto;
+}
+#testHolder td {
+    border-top:none;
+    border-bottom:1px solid #ddd;
+}
+
+#testHolder .table {
+    margin-bottom:0;
+}
+
+.testPage {
+    height:500px;
+}
+
+/* BREAK INTO TEST"s CSS */
+
+.testSpacer {
+    height:77px;
+}
+
+.displaySpacer {
+    height:34px;
+}
+
+ul.nav-pills.nav-stacked li.active.uncertain a {
+    background-color:#FF9900;
+}
+
+ul.nav-pills.nav-stacked li.uncertain a {
+    background-color:#FF0000;
+    color:#FFF;
+}
+
+.tooltip {
+    width:90px;
+}
+
+.flag {
+    color:#000;
+}
+
+.flag:hover {
+    color:#444;
+}
+
+.flag.active {
+    color:#FF9900;
+}
+
+tr {
+    height:1px;
+}
+
+td {
+    height:100%;
+}
+
+label {
+    display:block;
+    height:autio !important;
+    min-height:100%;
+    height:100%;
+    margin-bottom:0;
+    padding:8px;
+    font-weight:normal;
+}
+
+.glyphicon {
+    font-size:25px;
+}
+
+.question {
+    padding:10px;
+    background-color:#FFF;
+    border:1px solid #AAA;
+    border-radius:5px;
+    margin-bottom:20px;
+}
+
+.question .table {
+    margin-bottom:10px;
+}
+
+.question .table tr td {
+    border-top:none;
+    border:1px solid #CCC;
+    padding:0;
+}
+
+.spyBox {
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.vcent {
+    display:inline-block;
+    vertical-align:middle;
+    line-height:190px;
+}

@@ -1,0 +1,56 @@
+#topRow{
+	margin-bottom:20px;
+}
+
+#empty{
+	display:inline;
+}
+
+.title{
+	float:middle;
+	margin-right:20px;
+	display:inline;
+}
+
+.search{
+	float:right;
+	display:inline;
+	margin-top:20px;
+}
+
+#tags{
+	margin-left:10px;
+	margin-right:50px;
+	white-space: nowrap;
+}
+
+#tags .row{
+	padding-left:0px;
+}
+
+#tags h4{
+	text-align:left;
+	margin-top:-10px;
+}
+
+#courseRow{
+	word-wrap:none;
+}
+
+#lessInfo{
+	width:106px;
+}
+
+#signup{
+	margin-left:10px;
+}
+
+#remove{
+	margin-left: 10px;
+	display:inline;
+}
+
+.courseDesc{
+	display:inline;
+	margin: 30px 40px 0 15px;
+}

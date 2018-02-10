@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Upload</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://batcave.opentext.net:8000/assets/css/global.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.5.6/webfont.js"></script>
+    
+    <script src="//apis.google.com/js/client:platform.js" async defer></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://batcave.opentext.net:8000/landing">Open Quiz</a>
+            </div>
+
+            <div id="nav" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://batcave.opentext.net:8000/help">Help</a></li>
+                    <li><a href="http://batcave.opentext.net:8000/catalogue">Catalogue</a></li>
+                    <li class="active"><a href="#">Upload</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://batcave.opentext.net:8000/profile" class="dd">Profile</a></li>
+                            <li class="divider"></li>
+                            <li><a onclick="gapi.auth.signOut()" href="http://batcave.opentext.net:8000/logout" class="dd">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-10">
+                        <h2>Uploading your own Course</h2>
+                        <p>
+                            This is where you are able to upload new courses to the catalogue, for other people to enjoy.
+							Simply select a valid json file, and then click upload.
+                        </p>
+                        <br>
+                        <h2>Proper Course Guideline</h2>
+                        <p>
+                            This is a course json example
+                            <pre><code>{
+    "title" : "Example Course",
+    "description" : "This is the description for the example course.",
+    "author" : "Author Name",
+    "filters" : ["Example", "Filter"],   // View our list of filters for proper tagging
+    "difficulty" : "Easy",
+    "tests" : [
+        {
+            "title" : "Test 1",
+            "course_title" : "Example Course",
+            "description" : "This describes what the test will be on, and any other information you need to provide.",
+            "testNumber" : 1,  // This is the number to determine the order of tests
+            "questions" : [
+                {
+                    "title" : "What is 2 + 2?",
+                    "choices" : ["1", "2", "3", "4"],
+                    "answer" : 3   // This is the index in the array of the answer
+                },
+                {
+                    "title" : "What is 2 x 2?",
+                    "choices" : ["2", "4", "6", "8"],
+                    "answer" : 1
+                }
+            ]
+        }
+    ]
+}</code></pre>
+                            <input type="file" id="file-select" name="course" class="center"/>
+                            <button type="submit" id="upload-button" value="load" class="center btn btn-success" onclick="handleFileSelect();">Upload</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="http://batcave.opentext.net:8000/assets/scripts/upload.js"></script>
+</html>

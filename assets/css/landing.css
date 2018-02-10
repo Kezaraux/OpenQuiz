@@ -1,0 +1,34 @@
+#noCourses{
+    text-align:center;
+}
+
+#courseList{
+    display:inline;
+}
+#courseList h3{
+    display:inline;
+}
+
+.progress{
+    margin-left:-15px;
+    padding:0;
+}
+
+.progress-value{
+    padding:0;
+    display:inline;
+}
+
+.browseCatalogue{
+    position:relative;
+    left:42%;
+    margin-bottom:10px;
+}
+
+.startCourse{
+    position:relative
+    top:-5px;
+    height:44px;
+    padding-left:50px;
+    display:inline;
+}

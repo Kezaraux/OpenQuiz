@@ -1,0 +1,32 @@
+#profile-name{
+	text-align:center;
+}
+
+#text-stats{
+	position:relative;
+	margin-top: 100px;
+}
+#text-stats h4.ng-binding{
+	width:300px;
+}
+
+#statchart{
+	margin-left:150px;
+	width:auto;
+	position:relative;
+	display:inline;
+}
+ul.bar-legend{
+	list-style:square;
+	text-shadow: 1px 0 black, 0 1px black, 1px 0 black, 0 1px black;
+}
+
+#markLabel{
+	color:rgba(255,0,0,0.5);
+	font-size:24px;
+}
+
+#attemptLabel{
+	color:rgba(151,187,205,0.5);
+	font-size:24px;
+}

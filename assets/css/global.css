@@ -1,0 +1,171 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic);
+
+*{
+  font-family:"Lato";
+}
+body {
+    background-color:#FFF;
+    padding-top:70px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: 700;
+}
+p, a, button, td{
+    font-weight:500;
+}
+
+
+.label-as-badge {
+    border-radius:1em;
+}
+
+.center {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+hr {
+    border-color:#DDD;
+}
+
+.hr {
+    border-color:#BBB;
+}
+
+.panel {
+    background-color:#DDD;
+    border-color:#BBB;
+}
+
+.panel td.ng-binding.active {
+    background-color:#EEE;
+}
+
+
+.panel td.ng-binding.active:hover {
+    background-color:#EEE;
+}
+
+ul.nav-pills.nav-stacked li.active a {
+    background-color:#009933;
+    color:#FFF;
+}
+
+ul.nav-pills.nav-stacked li a {
+    color:#009933;
+}
+
+.navbar-inverse {
+background-color: #009933;
+border:none;
+height:64px;
+}
+
+.navbar-inverse .navbar-brand{
+    height:64px;
+    color: #FFFFFF;
+     font-size: 20px;
+     font-weight: 700;
+    text-align: left;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+    position: relative;
+}
+
+ul.nav.navbar-nav li a{
+    height:64px;
+    background-color:#009933;
+    color: #FFFFFF !important;
+    font-size: 20px;
+    font-weight:300;
+    text-align: left;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+    position: relative;
+}
+
+ul.nav.navbar-nav li a:hover{
+    background-color:#00AA44;
+}
+
+ul.nav.navbar-nav li.open a{
+    background-color:#00AA44;
+}
+
+ul.nav.navbar-nav li.open a:focus {
+    background-color:#00AA44;
+}
+
+ul.nav.navbar-nav li a.dd{
+    background-color:#fff;
+    color: #000 !important;
+    font-size:14px;
+    font-weight:400;
+}
+
+ul.nav.navbar-nav li a.dd:hover{
+    background-color:#ddd;
+}
+
+#nav ul.nav.navbar-nav  li.active a {
+    background-color:#00BB55;
+    color: #FFFFFF !important;
+     font-size: 20px;
+     font-weight: 300;
+    text-align: left;
+}
+#nav ul.nav.navbar-nav li a .active{
+    background-color:#00BB55;
+    color: #FFFFFF !important;
+     font-size: 20px;
+     font-weight: 300;
+    text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color:#009933;
+}
+a:hover {
+  text-decoration: underline;
+  color:#00AA55;
+}
+
+.user_register  {
+    display:  none;
+}
+
+.user_register label  {
+    display:  block;
+     margin-bottom: 5px;
+}
+
+.user_register input[type="text"],  .user_register input[type="email"],  .user_register input[type="password"]  {
+    display:  block;
+     width: 90%;
+     padding:  10px;
+     border: 1px solid #DDD;
+     color: #666;
+}
+
+.user_register input[type="checkbox"]  {
+    float: left;
+     margin-right: 5px;
+}
+
+.user_register input[type="checkbox"]+label  {
+    float: left;
+}
+
+
+.user_register .checkbox  {
+    margin-bottom:  10px;
+     clear:  both;
+     overflow:  hidden;
+}

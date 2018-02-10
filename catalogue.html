@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="CourseCatalogue">
+    <head>
+        <title>Catalogue</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/catalogue.css" rel="stylesheet">
+        <link href="assets/css/global.css" rel="stylesheet">
+
+       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/webfont/1.5.6/webfont.js"></script>
+        
+        <script src="//apis.google.com/js/client:platform.js" async defer></script>
+    </head>
+
+    <body ng-controller="Catalogue as catalogue">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                <a class="navbar-brand" href="http://batcave.opentext.net:8000/landing">Open Quiz</a>
+                </div>
+
+                <div id="nav" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="http://batcave.opentext.net:8000/help">Help</a></li>
+                        <li class="active"><a href="#">Catalogue</a></li>
+                        <li ng-show="catalogue.isAdmin()"><a href="http://batcave.opentext.net:8000/upload">Upload</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://batcave.opentext.net:8000/profile" class="dd">Profile</a></li>
+                                <li class="divider"></li>
+                                <li><a onclick="gapi.auth.signOut()" href="http://batcave.opentext.net:8000/logout" class="dd">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-lg-12">
+                    <div class="panel" id="catalogue">
+                        <div class="panel-body">
+                            <div class="row" id="topRow">
+                                <div class="col-xs-1 col-sm-2 col-md-3" id="empty"></div>
+                                    <div class="title col-xs-5 col-sm-4 col-md-4 col-lg-4">
+                                        <h3>Course Catalogue</h3>
+                                    </div>
+                                    <div class="col-xs-5 col-sm-5 col-md-4 col-lg-3">
+                                    <form class="search">
+                                        <input type="text" placeholder="Search for a course" id="searchText"><button type="submit" id="searchButton" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-search"></span></button>
+                                    </form>
+                                    </div>
+                            </div>
+                            <div class="catalogue">
+                                <div class="col-xs-1 col-md-2 col-lg-2" id="tags" ng-hide="catalogue.courses.length===0">
+                                    <h4> <span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;Tags</h4>
+                                    <div class="row" ng-repeat="filter in catalogue.filters">
+                                        <input type="checkbox" ng-click="catalogue.toggleSelectedFilter(filter)"> {{filter}}</input>
+                                    </div>
+                                </div>
+                                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                                    <div id="noCourses" ng-show="catalogue.courses.length===0">
+                                        <h4>Unfortunately, there are no courses available at this moment</h4>
+                                    </div>
+                                    {{catalogue.update()}}
+                                    <div class="row" id="courseRow" ng-repeat="course in catalogue.courses | orderBy: 'title'">
+                                            <div class="col-xs-3 col-md-4 col-lg-4">
+                                                <h4 id="courseName">{{course.title}}</h4>
+                                            </div>
+                                            <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2" id="details">
+                                                <button class="btn btn-info" ng-click="catalogue.setSelectedCourse(catalogue.courses.indexOf(course))" ng-hide="catalogue.isSelectedCourse(catalogue.courses.indexOf(course))"> More Details</button>
+                                                <button class="btn btn-info" id="lessInfo" ng-click="catalogue.setSelectedCourse(-1)" ng-show="catalogue.isSelectedCourse(catalogue.courses.indexOf(course))">Less Details</button>
+                                            </div>
+                                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="signup">
+                                                <button class="btn btn-md btn-success" ng-click="catalogue.addCourse(course)"> Sign Up</button>
+                                            </div>
+                                            <div class="col-xs-1 col-sm-2 col-md-1 col-lg-2" id="remove">
+                                                <button class="btn btn-md btn-danger" ng-click="catalogue.removeCourse(course)" ng-show="catalogue.isAdmin()">Remove Course</button>
+                                            </div>
+                                            <div class="row courseDesc">
+                                                <div class="col-xs-12 col-md-9 col-lg-9">
+                                                <h5 ng-show="catalogue.isSelectedCourse(catalogue.courses.indexOf(course))">{{course.description}}.</h5>
+                                                <h5 ng-show="catalogue.isSelectedCourse(catalogue.courses.indexOf(course))">Difficulty: {{course.difficulty}}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="http://batcave.opentext.net:8000/assets/scripts/catalogue.js"></script>
+</html>

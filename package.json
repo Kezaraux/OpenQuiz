@@ -1,0 +1,29 @@
+{
+    "name": "Open-Quiz",
+    "description": "OpenQuiz",
+    "author": "OpenText",
+    "contributors": [
+        {
+            "name": "Marcel Rusu",
+            "email": "marcelrusu0@gmail.com"
+        },
+        {
+            "name": "Brendan Doyle",
+            "email": "brendan.doyl3@gmail.com"
+        },
+        {
+            "name": "Bryce Siefert",
+            "email": "brycesiefert@gmail.com"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.lab.opentext.com/DevCamp/OpenQuiz"
+    },
+    "dependencies": {
+        "express": "*",
+        "mongodb": "*",
+        "cookie-parser": "*",
+        "cookie-session": "*"
+    }
+}

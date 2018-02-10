@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Home">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Open Quiz</title>
+
+    <!-- Bootstrap -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://batcave.opentext.net:8000/assets/css/courseView.css" rel="stylesheet">
+    <link href="http://batcave.opentext.net:8000/assets/css/global.css" rel="stylesheet">
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="http://batcave.opentext.net:8000/assets/scripts/courseView.js"></script>
+
+    <script src="http://batcave.opentext.net:8000/assets/scripts/heightEqualizer.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.5.6/webfont.js"></script>
+    
+    <script src="//apis.google.com/js/client:platform.js" async defer></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $("a[data-toggle='popover']")
+            .popover({html: true})
+            .click(function(e) {
+                e.preventDefault();
+            });
+        });
+    </script>
+
+    </head>
+
+    <body ng-controller="courseView as view">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://batcave.opentext.net:8000/landing">Open Quiz</a>
+                </div>
+
+                <div id="nav" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="http://batcave.opentext.net:8000/help">Help</a></li>
+                        <li><a href="http://batcave.opentext.net:8000/catalogue">Catalogue</a></li>
+                        <li ng-show="view.isAdmin()"><a href="http://batcave.opentext.net:8000/upload">Upload</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://batcave.opentext.net:8000/profile" class="dd">Profile</a></li>
+                                <li class="divider"></li>
+                                <li><a onclick="gapi.auth.signOut()" href="http://batcave.opentext.net:8000/logout" class="dd">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container" ng-hide="curPan.currentPanel">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>{{view.course.title}}</h3>
+                            <p>by: {{view.course.author}}</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar"
+                                     aria-valuenow="{{view.getCompletion()}}" aria-valuemin="0"
+                                     aria-valuemax="100" ng-style="{'width': {{view.getCompletion()}} + '%'}">
+                                </div>
+                            </div>
+
+                            <div class="row" ng-repeat="test in view.course.tests | orderBy:'number'"> <!-- Start of a new Test -->
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-8">
+                                    <div class="test">
+                                        <div class="row">
+                                            <div class="col-xs-8">
+                                                <h4>{{test.title}}</h4>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <h4><span ng-show="{{view.getHighestMark(test) >= 65}}" class="label label-success center">Completed</span>
+                                                    <span ng-hide="{{view.getHighestMark(test) >= 65}}" class="label label-danger center">Incomplete</span>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <p>{{test.description}}</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <a class="btn btn-success center startBtn" ng-click="view.startTest(test)" role="button">Start Test</a>
+                                            </div>
+                                            <div class="col-sm-5"><span class="visible-xs hidden-sm hidden-md hidden-lg spacer2"></span></div>
+                                            <div class="col-sm-4">
+                                                <div class="popContainer">
+                                                    <a href="#" class="btn btn-default center" role="button"
+                                                       data-toggle="popover" title="Statistics for: {{test.title}}"
+                                                       data-placement="bottom"
+                                                       data-content="Attempts: {{view.getAttempts(test)}} <br> Average: {{view.getAverage(test)}}%"
+                                                    >Test Statistics</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div> <!-- End of a Test -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
