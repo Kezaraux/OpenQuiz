@@ -8,15 +8,15 @@
 
     <!-- Bootstrap -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://batcave.opentext.net:8000/assets/css/courseView.css" rel="stylesheet">
-    <link href="http://batcave.opentext.net:8000/assets/css/global.css" rel="stylesheet">
+    <link href="localhost/assets/css/courseView.css" rel="stylesheet">
+    <link href="localhost/assets/css/global.css" rel="stylesheet">
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="http://batcave.opentext.net:8000/assets/scripts/courseView.js"></script>
+    <script src="localhost/assets/scripts/courseView.js"></script>
 
-    <script src="http://batcave.opentext.net:8000/assets/scripts/heightEqualizer.js"></script>
+    <script src="localhost/assets/scripts/heightEqualizer.js"></script>
 
     <script src="//ajax.googleapis.com/ajax/libs/webfont/1.5.6/webfont.js"></script>
     
@@ -44,22 +44,22 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://batcave.opentext.net:8000/landing">Open Quiz</a>
+                    <a class="navbar-brand" href="localhost/landing">Open Quiz</a>
                 </div>
 
                 <div id="nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="http://batcave.opentext.net:8000/help">Help</a></li>
-                        <li><a href="http://batcave.opentext.net:8000/catalogue">Catalogue</a></li>
-                        <li ng-show="view.isAdmin()"><a href="http://batcave.opentext.net:8000/upload">Upload</a></li>
+                        <li><a href="localhost/help">Help</a></li>
+                        <li><a href="localhost/catalogue">Catalogue</a></li>
+                        <li ng-show="view.isAdmin()"><a href="localhost/upload">Upload</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="http://batcave.opentext.net:8000/profile" class="dd">Profile</a></li>
+                                <li><a href="localhost/profile" class="dd">Profile</a></li>
                                 <li class="divider"></li>
-                                <li><a onclick="gapi.auth.signOut()" href="http://batcave.opentext.net:8000/logout" class="dd">Logout</a></li>
+                                <li><a onclick="gapi.auth.signOut()" href="localhost/logout" class="dd">Logout</a></li>
                             </ul>
                         </li>
                     </ul>
