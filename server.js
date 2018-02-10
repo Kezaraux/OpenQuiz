@@ -4,7 +4,7 @@ const cookieSession = require('cookie-session');
 const app           = express();
 const port          = 8000;
 
-const adminUser = 'marcelrusu0@gmail.com'; // Enter admin email here
+const adminUser = 'brendan.doyl3@gmail.com'; // Enter admin email here
 
 const contentTypes = {
     '.html': 'text/html',
@@ -97,7 +97,7 @@ app.post(/^(.+)$/, function(req, res) {
 app.get(/^(.+)$/, function(req, res) {
     var url = req.params[0];
 
-    if (req.session.userInfo === undefined) { // maybe want on front end
+    if (/*req.session.userInfo === undefined*/false) { // maybe want on front end
         if (url.indexOf('.') === -1 && req.url !== '/' && req.url !== '/about') {
             res.redirect('/');
         } else if (req.url === '/') {
@@ -118,11 +118,11 @@ app.get(/^(.+)$/, function(req, res) {
             switch(url) {
             case '/login':
             case '/':
-                if (req.session.userInfo === undefined) {
-                    res.sendFile(__dirname + '/login.html');
-                } else {
+                //if (req.session.userInfo === undefined) {
+                  //  res.sendFile(__dirname + '/login.html');
+              //  } else {
                     res.sendFile(__dirname + '/landing.html');
-                }
+              //  }
                 break;
             case '/getProfileInfo':
                 res.json(req.session.userInfo);
@@ -216,6 +216,7 @@ app.get(/^(.+)$/, function(req, res) {
 // server listens at port (8000)
 app.listen(port);
 
+/*
 // MongoDB stuff
 const Db     = require('mongodb').Db,
       Mongos = require('mongodb').Mongos,
@@ -223,7 +224,7 @@ const Db     = require('mongodb').Db,
       assert = require('assert');
 
 const server = new Server('localhost', 27021, {auto_reconnect: true});
-const db = new Db('data', server);
+const db = new Db('data', server, {w:-1, safe:false});
 
 // init code
 db.open(function(err, p_db) {
@@ -238,6 +239,21 @@ db.open(function(err, p_db) {
     });
     getIds(function(_ids) { ids = _ids });
     addUser('admin', adminUser);
+});
+*/
+
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+const url = 'mongodb://localhost:27017';
+const dbName = 'openquiz';
+
+MongoClient.connect(url, function(err, client) {
+	assert.equal(null, err);
+	console.log("Connected to MongoDB server");
+	
+	const db = client.db(dbName);
+	
+	//client.close();
 });
 
 // Checks if a user has a course

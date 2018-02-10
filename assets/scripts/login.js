@@ -16,7 +16,7 @@
 	function handleLogin() {
 		if (username.value !== '' && password.value !== '') {
 			var xmlhttp = new XMLHttpRequest();
-			var serverUrl = "http://batcave.opentext.net:8000";
+			var serverUrl = "localhost:8000";
 		    var authRequest = new FormData();
 		    authRequest.append('type', 'authUser');
 		    authRequest.append('username', username.value);
